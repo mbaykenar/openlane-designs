@@ -18,6 +18,12 @@ Here are tutorial links to my webpage:
 
 Here I will list errors that I got during Openlane flows and how I solved them. I divided this sections, where each section is a step in Openlane flow.
 
+## STA
+
+|<div style="width:55">Severity</div>|Error Message|Reason|Solution| 
+| ----------- | -----------   | ------- | --------|
+|ERROR| syntax error, unexpected ';', expecting ',' or '=' or ')'| In Verilog module definition at the end of a port signal declaretion ';' is put instead of ',' | Add ',' for port signal declaretion in Verilog module definition. |
+
 ## IO Placement
 
 |<div style="width:55">Severity</div>|Error Message|Reason|Solution| 
