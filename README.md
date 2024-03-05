@@ -27,6 +27,8 @@ Here I will list errors that I got during Openlane flows and how I solved them. 
 |ERROR| [N] errors found by linter. In linter.log: Duplicate declaration of signal: 'mysignal' | Same signal is declared in both as port in module and as a wire/reg in the body part of the module. | Remove one of the declarations of the signal. |
 |ERROR| [N] errors found by linter. In linter.log: syntax error, unexpected ',' .irq (24'h000000, irq_7, irq_6, irq_5, 5'b00000) | Concat operation {} in Verilog is forgotten. | Add {} to concatenate. Ex: .irq ({24'h000000, irq_7, irq_6, irq_5, 5'b00000}) |
 |ERROR| [N] errors found by linter. In linter.log: Parameter not found: 'MYPARAM' .MYPARAM(MYPARAM) | There is no parameter definition in the Verilog file | Remove the parameter passing in module instantiation |
+|ERROR| [N] errors found by linter. In linter.log: Cannot find include file: timescale.v | timescale.v file is not included in the VERILOG_FILES parameter | Add missing verilog file into VERILOG_FILES parameter |
+|ERROR| Timing constructs found in the RTL. Please remove them or wrap them around an ifdef. It heavily unrecommended to rely on timing constructs for synthesis | Remove timing parameters such as a <= #1; or disable quitting on Linter errors | Remove timing parameters from the Verilog code |
 
 ## Synthesis
 
