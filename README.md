@@ -88,6 +88,12 @@ Here I will list errors that I got during Openlane flows and how I solved them. 
 | ----------- | -----------   | ------- | --------|
 |ERROR| There are violations in the design after detailed routing | Routing resources are not enough to route all nets in the design | Check "DRT_OPT_ITERS" parameter in config file and incrase it if it is a small number such as smaller than 10. Other possible solution is increasing the "DIE_AREA" config parameter if "FP_SIZING" config parameter is "absolute", or decreasing "FP_CORE_UTIL" config parameter if "FP_SIZING" is "relative". Another possibility is there may be errors in manual macro positioning. Check macro positions with openroad -gui command.|
 
+## SPEF Extraction
+
+|<div style="width:55">Severity</div>|Error Message|Reason|Solution| 
+| ----------- | -----------   | ------- | --------|
+|ERROR| There are hold violations in the design at the typical corner | Due to the config parameters, Openlane could not optimize paths to avoid hold violations. This happens when you try Macro-First hardening. | Use Top-Level Integration method, in which you enable adding standard logic cells with instantiating hardened macros also. Check picosoc_method3 config parameters under the designs directory.|
+
 ## IR Drop Report
 
 |<div style="width:55">Severity</div>|Error Message|Reason|Solution| 
